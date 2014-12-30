@@ -1,10 +1,10 @@
 var csv = require('csv');
 
-exports.transform = function(fun, stream){
+exports.transform = function(fun, stream, options_in, options_out){
   var data;
-  var parser = csv.parse();
-  var stringifier = csv.stringify();
+  var parser = csv.parse(options_in);
   var transformer = csv.transform(fun);
+  var stringifier = csv.stringify(options_out);
 
   stream.on('readable', function(){
     while ((data = stream.read())) {
