@@ -1,11 +1,14 @@
+function periodToComma(s){
+  return s.replace(/\./, ",")
+}
 function credit(record){
   return ( record[3] === "C" )
-    ? record[4]
+    ? periodToComma(record[4])
     : 0;
 }
 function debet(record){
   return ( record[3] === "D" )
-    ? record[4]
+    ? periodToComma(record[4])
     : 0;
 }
 function datum(record){
